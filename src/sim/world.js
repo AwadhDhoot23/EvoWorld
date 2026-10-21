@@ -1,10 +1,11 @@
-import { createRng } from "./rng";
+import { createRng, shuffle } from "./rng";
 import { createOrganism } from "./organism";
 import { createFood } from "./food";
 import { updateOrganismMovement } from "./movement";
 import { eatNearbyFood } from "./eating";
 import { updateOrganismEnergy } from "./energy";
 import { reproduceOrganism } from "./reproduction";
+import { DEFAULT_MUTATION_RATE, randomGaussian } from "./mutation";
 
 const WORLD_WIDTH = 900;
 const WORLD_HEIGHT = 600;
@@ -16,7 +17,7 @@ const INITIAL_ENERGY = 50;
 const INITIAL_SPEED = 60;
 const INITIAL_VISION = 60;
 
-const FOOD_SPAWN_RATE = 8;
+export const DEFAULT_FOOD_SPAWN_RATE = 8;
 const MAX_FOOD = 250;
 
 export function createWorld(seed = 42) {
@@ -31,8 +32,14 @@ export function createWorld(seed = 42) {
     const heading = random() * Math.PI * 2;
 
     const genome = {
-      speed: INITIAL_SPEED,
-      vision: INITIAL_VISION,
+      speed: Math.max(
+        20,
+        Math.min(140, INITIAL_SPEED * (1 + randomGaussian(random) * 0.15)),
+      ),
+      vision: Math.max(
+        20,
+        Math.min(150, INITIAL_VISION * (1 + randomGaussian(random) * 0.15)),
+      ),
     };
 
     const organism = createOrganism(
@@ -61,25 +68,57 @@ export function createWorld(seed = 42) {
     height: WORLD_HEIGHT,
     seed,
     organisms,
+    newborns: [],
     food,
     steps: 0,
+    births: 0,
+    deaths: 0,
+    totalLifespan: 0,
+    highestGeneration: 0,
+    history: {
+      population: [],
+      food: [],
+      meanSpeed: [],
+      meanVision: [],
+    },
+    historySampleAccumulator: 0,
     random,
     foodSpawnAccumulator: 0,
+    foodSpawnRate: DEFAULT_FOOD_SPAWN_RATE,
+    mutationRate: DEFAULT_MUTATION_RATE,
     nextFoodId: STARTING_FOOD + 1,
     nextOrganismId: STARTING_ORGANISMS + 1,
   };
 }
 
 export function updateWorld(world, deltaTime) {
-  for (const organism of world.organisms) {
+  const organismsToUpdate = shuffle(world.organisms, world.random);
+
+  for (const organism of organismsToUpdate) {
+    organism.age += deltaTime;
+
     updateOrganismMovement(organism, world.food, deltaTime, world.random);
     updateOrganismEnergy(organism, deltaTime);
     eatNearbyFood(organism, world.food);
     organism.cooldown = Math.max(0, organism.cooldown - deltaTime);
     reproduceOrganism(world, organism);
   }
-  world.organisms = world.organisms.filter((organism) => organism.energy > 0);
-  world.foodSpawnAccumulator += deltaTime * FOOD_SPAWN_RATE;
+  const survivors = [];
+
+  for (const organism of world.organisms) {
+    if (organism.energy > 0) {
+      survivors.push(organism);
+    } else {
+      world.deaths += 1;
+      world.totalLifespan += organism.age;
+    }
+  }
+
+  world.organisms = survivors;
+  world.organisms.push(...world.newborns);
+  world.newborns = [];
+  world.foodSpawnAccumulator +=
+    deltaTime * (world.foodSpawnRate ?? DEFAULT_FOOD_SPAWN_RATE);
 
   while (world.foodSpawnAccumulator >= 1 && world.food.length < MAX_FOOD) {
     const x = world.random() * world.width;
@@ -89,6 +128,42 @@ export function updateWorld(world, deltaTime) {
 
     world.nextFoodId += 1;
     world.foodSpawnAccumulator -= 1;
+  }
+  world.historySampleAccumulator += deltaTime;
+
+  if (world.historySampleAccumulator >= 1) {
+    world.historySampleAccumulator -= 1;
+
+    const population = world.organisms.length;
+
+    const meanSpeed =
+      population > 0
+        ? world.organisms.reduce(
+            (sum, organism) => sum + organism.genome.speed,
+            0,
+          ) / population
+        : 0;
+
+    const meanVision =
+      population > 0
+        ? world.organisms.reduce(
+            (sum, organism) => sum + organism.genome.vision,
+            0,
+          ) / population
+        : 0;
+
+    world.history.population.push(population);
+    world.history.food.push(world.food.length);
+    world.history.meanSpeed.push(meanSpeed);
+    world.history.meanVision.push(meanVision);
+
+    const maxSamples = 600;
+
+    for (const series of Object.values(world.history)) {
+      if (series.length > maxSamples) {
+        series.shift();
+      }
+    }
   }
   world.steps += 1;
 }

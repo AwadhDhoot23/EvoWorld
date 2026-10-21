@@ -1,6 +1,18 @@
 import WorldCanvas from "./components/WorldCanvas.jsx";
+import { useState } from "react";
+import PopulationChart from "./components/PopulationChart";
+import FoodChart from "./components/FoodChart";
+import SpeedHistogram from "./components/SpeedHistogram";
+import TraitHistoryChart from "./components/TraitHistoryChart";
 
 function App() {
+  const [history, setHistory] = useState({
+    population: [],
+    food: [],
+    meanSpeed: [],
+    meanVision: [],
+    speeds: [],
+  });
   return (
     <main className="min-h-screen bg-slate-950 px-4 py-8 text-slate-100 sm:px-8">
       <div className="mx-auto w-full max-w-6xl">
@@ -26,7 +38,7 @@ function App() {
               900 × 600 units
             </span>
           </div>
-          <div className="mb-4 grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-5">
+          <div className="mb-4 grid grid-cols- gap-3 sm:grid-cols-3 lg:grid-cols-4">
             <div className="rounded-lg border border-slate-700 bg-slate-800 p-3">
               <p className="text-sm text-slate-400">Population</p>
               <p
@@ -73,8 +85,48 @@ function App() {
                 50.0
               </p>
             </div>
+            <div className="rounded-lg border border-slate-700 bg-slate-800 p-3">
+              <p className="text-sm text-slate-400">Births</p>
+              <p id="births-count" className="text-xl font-semibold text-white">
+                0
+              </p>
+            </div>
+
+            <div className="rounded-lg border border-slate-700 bg-slate-800 p-3">
+              <p className="text-sm text-slate-400">Deaths</p>
+              <p id="deaths-count" className="text-xl font-semibold text-white">
+                0
+              </p>
+            </div>
+
+            <div className="rounded-lg border border-slate-700 bg-slate-800 p-3">
+              <p className="text-sm text-slate-400">Average lifespan</p>
+              <p
+                id="average-lifespan"
+                className="text-xl font-semibold text-white"
+              >
+                —
+              </p>
+            </div>
+
+            <div className="rounded-lg border border-slate-700 bg-slate-800 p-3">
+              <p className="text-sm text-slate-400">Highest generation</p>
+              <p
+                id="highest-generation"
+                className="text-xl font-semibold text-white"
+              >
+                0
+              </p>
+            </div>
           </div>
-          <WorldCanvas />
+          <WorldCanvas onHistoryUpdate={setHistory} />
+          <PopulationChart history={history.population} />
+          <FoodChart history={history.food} />
+          <SpeedHistogram speeds={history.speeds} />
+          <TraitHistoryChart
+            meanSpeed={history.meanSpeed}
+            meanVision={history.meanVision}
+          />
         </section>
       </div>
     </main>
