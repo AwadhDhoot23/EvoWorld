@@ -2,10 +2,13 @@
 
 > A deterministic 2D artificial-life and emergent natural selection simulation built with vanilla JavaScript, HTML5 Canvas, React, Vite, and Tailwind CSS.
 
+[![Live Demo](https://img.shields.io/badge/Live%20Demo-Online-success?style=for-the-badge&logo=github)](https://awadhdhoot23.github.io/EvoWorld/)
 [![Vitest](https://img.shields.io/badge/tests-10%20passed-brightgreen.svg)](tests/sim.test.js)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 [![Vite](https://img.shields.io/badge/built%20with-Vite-646CFF.svg)](https://vitejs.dev/)
 [![Tailwind CSS v4](https://img.shields.io/badge/Tailwind-v4-38BDF8.svg)](https://tailwindcss.com/)
+
+**🎮 Play with the live simulation right now:** **[https://awadhdhoot23.github.io/EvoWorld/](https://awadhdhoot23.github.io/EvoWorld/)**
 
 In **EvoWorld**, simple autonomous agents search for food, consume energy to survive and navigate, reproduce when energy thresholds are met, and pass on slightly mutated copies of their traits. 
 
