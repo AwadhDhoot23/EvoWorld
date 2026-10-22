@@ -1,0 +1,795 @@
+{
+  "generatedAt": "2026-10-22T15:22:08.456Z",
+  "durationSeconds": 300,
+  "stepCount": 18000,
+  "seeds": [
+    101,
+    102,
+    103,
+    104,
+    105,
+    106,
+    107,
+    108,
+    109,
+    110
+  ],
+  "summary": [
+    {
+      "Condition": "Balanced",
+      "Seeds": 10,
+      "Final Pop (Mean ± SD)": "77.2 ± 7.6",
+      "Pop Range": "[69, 90]",
+      "Mean Speed (Range)": "54.1 [48.6 - 60.7]",
+      "Mean Vision (Range)": "67.3 [63.3 - 71.4]",
+      "Extinct Runs": "0 / 10"
+    },
+    {
+      "Condition": "Scarce food",
+      "Seeds": 10,
+      "Final Pop (Mean ± SD)": "38.2 ± 4.7",
+      "Pop Range": "[32, 46]",
+      "Mean Speed (Range)": "52.2 [44.6 - 64.7]",
+      "Mean Vision (Range)": "72.9 [64.5 - 83]",
+      "Extinct Runs": "0 / 10"
+    },
+    {
+      "Condition": "Abundant food",
+      "Seeds": 10,
+      "Final Pop (Mean ± SD)": "145.1 ± 5.4",
+      "Pop Range": "[139, 157]",
+      "Mean Speed (Range)": "57.7 [52.2 - 59.5]",
+      "Mean Vision (Range)": "59.9 [57.3 - 64]",
+      "Extinct Runs": "0 / 10"
+    },
+    {
+      "Condition": "High mutation",
+      "Seeds": 10,
+      "Final Pop (Mean ± SD)": "77.7 ± 6.5",
+      "Pop Range": "[69, 88]",
+      "Mean Speed (Range)": "48.9 [42.3 - 55.7]",
+      "Mean Vision (Range)": "71.4 [65.5 - 77.7]",
+      "Extinct Runs": "0 / 10"
+    },
+    {
+      "Condition": "No mutation",
+      "Seeds": 10,
+      "Final Pop (Mean ± SD)": "75.8 ± 5.1",
+      "Pop Range": "[68, 83]",
+      "Mean Speed (Range)": "54.7 [50.8 - 58]",
+      "Mean Vision (Range)": "64.3 [59.4 - 70.6]",
+      "Extinct Runs": "0 / 10"
+    },
+    {
+      "Condition": "Control (Costs OFF)",
+      "Seeds": 10,
+      "Final Pop (Mean ± SD)": "400 ± 0",
+      "Pop Range": "[400, 400]",
+      "Mean Speed (Range)": "61.8 [60.4 - 63.4]",
+      "Mean Vision (Range)": "59.7 [57.5 - 61.4]",
+      "Extinct Runs": "0 / 10"
+    }
+  ],
+  "conditions": [
+    {
+      "condition": "Balanced",
+      "config": {
+        "foodSpawnRate": 8,
+        "mutationRate": 0.08,
+        "energyCostsEnabled": true
+      },
+      "runs": [
+        {
+          "seed": 101,
+          "finalPopulation": 70,
+          "finalSpeed": 60.66,
+          "finalVision": 67.76,
+          "extinct": false,
+          "extinctAtSecond": null,
+          "births": 515,
+          "deaths": 545,
+          "highestGeneration": 11
+        },
+        {
+          "seed": 102,
+          "finalPopulation": 90,
+          "finalSpeed": 51.97,
+          "finalVision": 67.8,
+          "extinct": false,
+          "extinctAtSecond": null,
+          "births": 518,
+          "deaths": 528,
+          "highestGeneration": 10
+        },
+        {
+          "seed": 103,
+          "finalPopulation": 83,
+          "finalSpeed": 51.49,
+          "finalVision": 70.05,
+          "extinct": false,
+          "extinctAtSecond": null,
+          "births": 554,
+          "deaths": 571,
+          "highestGeneration": 12
+        },
+        {
+          "seed": 104,
+          "finalPopulation": 73,
+          "finalSpeed": 56.26,
+          "finalVision": 66.08,
+          "extinct": false,
+          "extinctAtSecond": null,
+          "births": 523,
+          "deaths": 550,
+          "highestGeneration": 15
+        },
+        {
+          "seed": 105,
+          "finalPopulation": 79,
+          "finalSpeed": 53.48,
+          "finalVision": 69.36,
+          "extinct": false,
+          "extinctAtSecond": null,
+          "births": 535,
+          "deaths": 556,
+          "highestGeneration": 12
+        },
+        {
+          "seed": 106,
+          "finalPopulation": 73,
+          "finalSpeed": 53.37,
+          "finalVision": 71.36,
+          "extinct": false,
+          "extinctAtSecond": null,
+          "births": 529,
+          "deaths": 556,
+          "highestGeneration": 13
+        },
+        {
+          "seed": 107,
+          "finalPopulation": 69,
+          "finalSpeed": 57.72,
+          "finalVision": 68.97,
+          "extinct": false,
+          "extinctAtSecond": null,
+          "births": 538,
+          "deaths": 569,
+          "highestGeneration": 10
+        },
+        {
+          "seed": 108,
+          "finalPopulation": 70,
+          "finalSpeed": 54,
+          "finalVision": 64.83,
+          "extinct": false,
+          "extinctAtSecond": null,
+          "births": 542,
+          "deaths": 572,
+          "highestGeneration": 15
+        },
+        {
+          "seed": 109,
+          "finalPopulation": 88,
+          "finalSpeed": 48.6,
+          "finalVision": 63.27,
+          "extinct": false,
+          "extinctAtSecond": null,
+          "births": 539,
+          "deaths": 551,
+          "highestGeneration": 11
+        },
+        {
+          "seed": 110,
+          "finalPopulation": 77,
+          "finalSpeed": 53.34,
+          "finalVision": 63.69,
+          "extinct": false,
+          "extinctAtSecond": null,
+          "births": 533,
+          "deaths": 556,
+          "highestGeneration": 9
+        }
+      ]
+    },
+    {
+      "condition": "Scarce food",
+      "config": {
+        "foodSpawnRate": 4,
+        "mutationRate": 0.08,
+        "energyCostsEnabled": true
+      },
+      "runs": [
+        {
+          "seed": 101,
+          "finalPopulation": 40,
+          "finalSpeed": 49.4,
+          "finalVision": 69.54,
+          "extinct": false,
+          "extinctAtSecond": null,
+          "births": 285,
+          "deaths": 345,
+          "highestGeneration": 12
+        },
+        {
+          "seed": 102,
+          "finalPopulation": 34,
+          "finalSpeed": 52.1,
+          "finalVision": 76.16,
+          "extinct": false,
+          "extinctAtSecond": null,
+          "births": 291,
+          "deaths": 357,
+          "highestGeneration": 12
+        },
+        {
+          "seed": 103,
+          "finalPopulation": 41,
+          "finalSpeed": 49.88,
+          "finalVision": 64.73,
+          "extinct": false,
+          "extinctAtSecond": null,
+          "births": 283,
+          "deaths": 342,
+          "highestGeneration": 9
+        },
+        {
+          "seed": 104,
+          "finalPopulation": 33,
+          "finalSpeed": 54.11,
+          "finalVision": 77.92,
+          "extinct": false,
+          "extinctAtSecond": null,
+          "births": 273,
+          "deaths": 340,
+          "highestGeneration": 9
+        },
+        {
+          "seed": 105,
+          "finalPopulation": 39,
+          "finalSpeed": 53.1,
+          "finalVision": 68.86,
+          "extinct": false,
+          "extinctAtSecond": null,
+          "births": 288,
+          "deaths": 349,
+          "highestGeneration": 12
+        },
+        {
+          "seed": 106,
+          "finalPopulation": 36,
+          "finalSpeed": 53.28,
+          "finalVision": 82.99,
+          "extinct": false,
+          "extinctAtSecond": null,
+          "births": 267,
+          "deaths": 331,
+          "highestGeneration": 10
+        },
+        {
+          "seed": 107,
+          "finalPopulation": 32,
+          "finalSpeed": 64.66,
+          "finalVision": 71.37,
+          "extinct": false,
+          "extinctAtSecond": null,
+          "births": 286,
+          "deaths": 354,
+          "highestGeneration": 9
+        },
+        {
+          "seed": 108,
+          "finalPopulation": 37,
+          "finalSpeed": 53.39,
+          "finalVision": 80.41,
+          "extinct": false,
+          "extinctAtSecond": null,
+          "births": 293,
+          "deaths": 356,
+          "highestGeneration": 10
+        },
+        {
+          "seed": 109,
+          "finalPopulation": 44,
+          "finalSpeed": 47.23,
+          "finalVision": 72.96,
+          "extinct": false,
+          "extinctAtSecond": null,
+          "births": 286,
+          "deaths": 342,
+          "highestGeneration": 9
+        },
+        {
+          "seed": 110,
+          "finalPopulation": 46,
+          "finalSpeed": 44.64,
+          "finalVision": 64.51,
+          "extinct": false,
+          "extinctAtSecond": null,
+          "births": 290,
+          "deaths": 344,
+          "highestGeneration": 7
+        }
+      ]
+    },
+    {
+      "condition": "Abundant food",
+      "config": {
+        "foodSpawnRate": 16,
+        "mutationRate": 0.08,
+        "energyCostsEnabled": true
+      },
+      "runs": [
+        {
+          "seed": 101,
+          "finalPopulation": 145,
+          "finalSpeed": 57.94,
+          "finalVision": 58.39,
+          "extinct": false,
+          "extinctAtSecond": null,
+          "births": 1063,
+          "deaths": 1018,
+          "highestGeneration": 13
+        },
+        {
+          "seed": 102,
+          "finalPopulation": 141,
+          "finalSpeed": 58.96,
+          "finalVision": 58.81,
+          "extinct": false,
+          "extinctAtSecond": null,
+          "births": 1063,
+          "deaths": 1022,
+          "highestGeneration": 15
+        },
+        {
+          "seed": 103,
+          "finalPopulation": 157,
+          "finalSpeed": 52.2,
+          "finalVision": 58.44,
+          "extinct": false,
+          "extinctAtSecond": null,
+          "births": 1061,
+          "deaths": 1004,
+          "highestGeneration": 15
+        },
+        {
+          "seed": 104,
+          "finalPopulation": 139,
+          "finalSpeed": 58.9,
+          "finalVision": 63.97,
+          "extinct": false,
+          "extinctAtSecond": null,
+          "births": 1048,
+          "deaths": 1009,
+          "highestGeneration": 13
+        },
+        {
+          "seed": 105,
+          "finalPopulation": 148,
+          "finalSpeed": 58.41,
+          "finalVision": 60.4,
+          "extinct": false,
+          "extinctAtSecond": null,
+          "births": 1050,
+          "deaths": 1002,
+          "highestGeneration": 13
+        },
+        {
+          "seed": 106,
+          "finalPopulation": 146,
+          "finalSpeed": 56.29,
+          "finalVision": 57.62,
+          "extinct": false,
+          "extinctAtSecond": null,
+          "births": 1027,
+          "deaths": 981,
+          "highestGeneration": 12
+        },
+        {
+          "seed": 107,
+          "finalPopulation": 143,
+          "finalSpeed": 59.12,
+          "finalVision": 61.53,
+          "extinct": false,
+          "extinctAtSecond": null,
+          "births": 1049,
+          "deaths": 1006,
+          "highestGeneration": 12
+        },
+        {
+          "seed": 108,
+          "finalPopulation": 139,
+          "finalSpeed": 57.75,
+          "finalVision": 61.1,
+          "extinct": false,
+          "extinctAtSecond": null,
+          "births": 1029,
+          "deaths": 990,
+          "highestGeneration": 17
+        },
+        {
+          "seed": 109,
+          "finalPopulation": 144,
+          "finalSpeed": 59.53,
+          "finalVision": 57.26,
+          "extinct": false,
+          "extinctAtSecond": null,
+          "births": 1045,
+          "deaths": 1001,
+          "highestGeneration": 15
+        },
+        {
+          "seed": 110,
+          "finalPopulation": 149,
+          "finalSpeed": 57.46,
+          "finalVision": 61.16,
+          "extinct": false,
+          "extinctAtSecond": null,
+          "births": 1036,
+          "deaths": 987,
+          "highestGeneration": 12
+        }
+      ]
+    },
+    {
+      "condition": "High mutation",
+      "config": {
+        "foodSpawnRate": 8,
+        "mutationRate": 0.25,
+        "energyCostsEnabled": true
+      },
+      "runs": [
+        {
+          "seed": 101,
+          "finalPopulation": 84,
+          "finalSpeed": 46.69,
+          "finalVision": 68.71,
+          "extinct": false,
+          "extinctAtSecond": null,
+          "births": 539,
+          "deaths": 555,
+          "highestGeneration": 10
+        },
+        {
+          "seed": 102,
+          "finalPopulation": 73,
+          "finalSpeed": 52.37,
+          "finalVision": 75.35,
+          "extinct": false,
+          "extinctAtSecond": null,
+          "births": 548,
+          "deaths": 575,
+          "highestGeneration": 10
+        },
+        {
+          "seed": 103,
+          "finalPopulation": 73,
+          "finalSpeed": 51.46,
+          "finalVision": 67.03,
+          "extinct": false,
+          "extinctAtSecond": null,
+          "births": 545,
+          "deaths": 572,
+          "highestGeneration": 11
+        },
+        {
+          "seed": 104,
+          "finalPopulation": 79,
+          "finalSpeed": 49.23,
+          "finalVision": 77.69,
+          "extinct": false,
+          "extinctAtSecond": null,
+          "births": 534,
+          "deaths": 555,
+          "highestGeneration": 10
+        },
+        {
+          "seed": 105,
+          "finalPopulation": 69,
+          "finalSpeed": 55.74,
+          "finalVision": 74.28,
+          "extinct": false,
+          "extinctAtSecond": null,
+          "births": 530,
+          "deaths": 561,
+          "highestGeneration": 8
+        },
+        {
+          "seed": 106,
+          "finalPopulation": 84,
+          "finalSpeed": 46.63,
+          "finalVision": 74.95,
+          "extinct": false,
+          "extinctAtSecond": null,
+          "births": 537,
+          "deaths": 553,
+          "highestGeneration": 10
+        },
+        {
+          "seed": 107,
+          "finalPopulation": 82,
+          "finalSpeed": 46.01,
+          "finalVision": 65.5,
+          "extinct": false,
+          "extinctAtSecond": null,
+          "births": 536,
+          "deaths": 554,
+          "highestGeneration": 14
+        },
+        {
+          "seed": 108,
+          "finalPopulation": 72,
+          "finalSpeed": 52.22,
+          "finalVision": 74.35,
+          "extinct": false,
+          "extinctAtSecond": null,
+          "births": 538,
+          "deaths": 566,
+          "highestGeneration": 11
+        },
+        {
+          "seed": 109,
+          "finalPopulation": 73,
+          "finalSpeed": 45.91,
+          "finalVision": 69.04,
+          "extinct": false,
+          "extinctAtSecond": null,
+          "births": 532,
+          "deaths": 559,
+          "highestGeneration": 14
+        },
+        {
+          "seed": 110,
+          "finalPopulation": 88,
+          "finalSpeed": 42.28,
+          "finalVision": 66.83,
+          "extinct": false,
+          "extinctAtSecond": null,
+          "births": 562,
+          "deaths": 574,
+          "highestGeneration": 9
+        }
+      ]
+    },
+    {
+      "condition": "No mutation",
+      "config": {
+        "foodSpawnRate": 8,
+        "mutationRate": 0,
+        "energyCostsEnabled": true
+      },
+      "runs": [
+        {
+          "seed": 101,
+          "finalPopulation": 78,
+          "finalSpeed": 56.31,
+          "finalVision": 64.02,
+          "extinct": false,
+          "extinctAtSecond": null,
+          "births": 540,
+          "deaths": 562,
+          "highestGeneration": 13
+        },
+        {
+          "seed": 102,
+          "finalPopulation": 69,
+          "finalSpeed": 58,
+          "finalVision": 70.64,
+          "extinct": false,
+          "extinctAtSecond": null,
+          "births": 551,
+          "deaths": 582,
+          "highestGeneration": 11
+        },
+        {
+          "seed": 103,
+          "finalPopulation": 78,
+          "finalSpeed": 54.79,
+          "finalVision": 65.12,
+          "extinct": false,
+          "extinctAtSecond": null,
+          "births": 553,
+          "deaths": 575,
+          "highestGeneration": 8
+        },
+        {
+          "seed": 104,
+          "finalPopulation": 76,
+          "finalSpeed": 55.19,
+          "finalVision": 64.1,
+          "extinct": false,
+          "extinctAtSecond": null,
+          "births": 553,
+          "deaths": 577,
+          "highestGeneration": 12
+        },
+        {
+          "seed": 105,
+          "finalPopulation": 83,
+          "finalSpeed": 52.09,
+          "finalVision": 60.26,
+          "extinct": false,
+          "extinctAtSecond": null,
+          "births": 559,
+          "deaths": 576,
+          "highestGeneration": 10
+        },
+        {
+          "seed": 106,
+          "finalPopulation": 71,
+          "finalSpeed": 56.42,
+          "finalVision": 64.45,
+          "extinct": false,
+          "extinctAtSecond": null,
+          "births": 533,
+          "deaths": 562,
+          "highestGeneration": 12
+        },
+        {
+          "seed": 107,
+          "finalPopulation": 75,
+          "finalSpeed": 56.3,
+          "finalVision": 65.1,
+          "extinct": false,
+          "extinctAtSecond": null,
+          "births": 539,
+          "deaths": 564,
+          "highestGeneration": 12
+        },
+        {
+          "seed": 108,
+          "finalPopulation": 68,
+          "finalSpeed": 53.49,
+          "finalVision": 65.28,
+          "extinct": false,
+          "extinctAtSecond": null,
+          "births": 542,
+          "deaths": 574,
+          "highestGeneration": 14
+        },
+        {
+          "seed": 109,
+          "finalPopulation": 81,
+          "finalSpeed": 50.78,
+          "finalVision": 65.07,
+          "extinct": false,
+          "extinctAtSecond": null,
+          "births": 545,
+          "deaths": 564,
+          "highestGeneration": 11
+        },
+        {
+          "seed": 110,
+          "finalPopulation": 79,
+          "finalSpeed": 53.51,
+          "finalVision": 59.4,
+          "extinct": false,
+          "extinctAtSecond": null,
+          "births": 558,
+          "deaths": 579,
+          "highestGeneration": 12
+        }
+      ]
+    },
+    {
+      "condition": "Control (Costs OFF)",
+      "config": {
+        "foodSpawnRate": 8,
+        "mutationRate": 0.08,
+        "energyCostsEnabled": false
+      },
+      "runs": [
+        {
+          "seed": 101,
+          "finalPopulation": 400,
+          "finalSpeed": 61.01,
+          "finalVision": 61.38,
+          "extinct": false,
+          "extinctAtSecond": null,
+          "births": 300,
+          "deaths": 0,
+          "highestGeneration": 5
+        },
+        {
+          "seed": 102,
+          "finalPopulation": 400,
+          "finalSpeed": 62.58,
+          "finalVision": 57.47,
+          "extinct": false,
+          "extinctAtSecond": null,
+          "births": 300,
+          "deaths": 0,
+          "highestGeneration": 4
+        },
+        {
+          "seed": 103,
+          "finalPopulation": 400,
+          "finalSpeed": 60.43,
+          "finalVision": 59.59,
+          "extinct": false,
+          "extinctAtSecond": null,
+          "births": 300,
+          "deaths": 0,
+          "highestGeneration": 5
+        },
+        {
+          "seed": 104,
+          "finalPopulation": 400,
+          "finalSpeed": 62.52,
+          "finalVision": 60.46,
+          "extinct": false,
+          "extinctAtSecond": null,
+          "births": 300,
+          "deaths": 0,
+          "highestGeneration": 3
+        },
+        {
+          "seed": 105,
+          "finalPopulation": 400,
+          "finalSpeed": 61.23,
+          "finalVision": 58.13,
+          "extinct": false,
+          "extinctAtSecond": null,
+          "births": 300,
+          "deaths": 0,
+          "highestGeneration": 4
+        },
+        {
+          "seed": 106,
+          "finalPopulation": 400,
+          "finalSpeed": 60.38,
+          "finalVision": 59.25,
+          "extinct": false,
+          "extinctAtSecond": null,
+          "births": 300,
+          "deaths": 0,
+          "highestGeneration": 4
+        },
+        {
+          "seed": 107,
+          "finalPopulation": 400,
+          "finalSpeed": 62.64,
+          "finalVision": 60.1,
+          "extinct": false,
+          "extinctAtSecond": null,
+          "births": 300,
+          "deaths": 0,
+          "highestGeneration": 5
+        },
+        {
+          "seed": 108,
+          "finalPopulation": 400,
+          "finalSpeed": 63.35,
+          "finalVision": 61.43,
+          "extinct": false,
+          "extinctAtSecond": null,
+          "births": 300,
+          "deaths": 0,
+          "highestGeneration": 5
+        },
+        {
+          "seed": 109,
+          "finalPopulation": 400,
+          "finalSpeed": 61.73,
+          "finalVision": 59.88,
+          "extinct": false,
+          "extinctAtSecond": null,
+          "births": 300,
+          "deaths": 0,
+          "highestGeneration": 4
+        },
+        {
+          "seed": 110,
+          "finalPopulation": 400,
+          "finalSpeed": 62.07,
+          "finalVision": 59.7,
+          "extinct": false,
+          "extinctAtSecond": null,
+          "births": 300,
+          "deaths": 0,
+          "highestGeneration": 5
+        }
+      ]
+    }
+  ]
+}

@@ -1,5 +1,5 @@
-import { createOrganism } from "./organism";
-import { mutateTrait, DEFAULT_MUTATION_RATE } from "./mutation";
+import { createOrganism } from "./organism.js";
+import { mutateTrait, DEFAULT_MUTATION_RATE } from "./mutation.js";
 const REPRODUCTION_THRESHOLD = 80;
 const PARENT_ENERGY_COST = 50;
 const OFFSPRING_ENERGY = 30;
@@ -42,27 +42,19 @@ export function reproduceOrganism(world, organism) {
     world.random() * Math.PI * 2,
     OFFSPRING_ENERGY,
     {
-      speed: Math.max(
+      speed: mutateTrait(
+        organism.genome.speed,
+        world.random,
+        world.mutationRate ?? DEFAULT_MUTATION_RATE,
         20,
-        Math.min(
-          140,
-          mutateTrait(
-            organism.genome.speed,
-            world.random,
-            world.mutationRate ?? DEFAULT_MUTATION_RATE,
-          ),
-        ),
+        140,
       ),
-      vision: Math.max(
+      vision: mutateTrait(
+        organism.genome.vision,
+        world.random,
+        world.mutationRate ?? DEFAULT_MUTATION_RATE,
         20,
-        Math.min(
-          150,
-          mutateTrait(
-            organism.genome.vision,
-            world.random,
-            world.mutationRate ?? DEFAULT_MUTATION_RATE,
-          ),
-        ),
+        150,
       ),
     },
   );

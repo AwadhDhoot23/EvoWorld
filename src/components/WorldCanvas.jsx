@@ -4,6 +4,29 @@ import { createWorld, updateWorld } from "../sim/world";
 const WORLD_WIDTH = 900;
 const WORLD_HEIGHT = 600;
 
+const PRESETS = {
+  Balanced: {
+    foodSpawnRate: 8,
+    mutationRate: 0.08,
+  },
+  "Scarce food": {
+    foodSpawnRate: 4,
+    mutationRate: 0.08,
+  },
+  "Abundant food": {
+    foodSpawnRate: 16,
+    mutationRate: 0.08,
+  },
+  "High mutation": {
+    foodSpawnRate: 8,
+    mutationRate: 0.25,
+  },
+  "No mutation": {
+    foodSpawnRate: 8,
+    mutationRate: 0,
+  },
+};
+
 function WorldCanvas({ onHistoryUpdate }) {
   const canvasRef = useRef(null);
   const [selectedOrganism, setSelectedOrganism] = useState(null);
@@ -23,6 +46,28 @@ function WorldCanvas({ onHistoryUpdate }) {
   const foodSpawnRateRef = useRef(8);
   const [mutationRate, setMutationRate] = useState(0.08);
   const mutationRateRef = useRef(0.08);
+
+  const [selectedPreset, setSelectedPreset] = useState("Balanced");
+
+  const applyPreset = (presetName) => {
+    const preset = PRESETS[presetName];
+
+    if (!preset) return;
+
+    setSelectedPreset(presetName);
+
+    setFoodSpawnRate(preset.foodSpawnRate);
+    foodSpawnRateRef.current = preset.foodSpawnRate;
+
+    setMutationRate(preset.mutationRate);
+    mutationRateRef.current = preset.mutationRate;
+
+    if (worldRef.current) {
+      worldRef.current.foodSpawnRate = preset.foodSpawnRate;
+      worldRef.current.mutationRate = preset.mutationRate;
+    }
+  };
+
   useEffect(() => {
     const canvas = canvasRef.current;
     const context = canvas.getContext("2d");
@@ -222,6 +267,22 @@ function WorldCanvas({ onHistoryUpdate }) {
       >
         {isPaused ? "Resume" : "Pause"}
       </button>
+
+      <label className="ml-2 inline-flex items-center gap-2 text-sm text-slate-300">
+        Preset:
+        <select
+          value={selectedPreset}
+          onChange={(event) => applyPreset(event.target.value)}
+          className="rounded-lg border border-slate-700 bg-slate-800 px-3 py-2 text-white"
+        >
+          {Object.keys(PRESETS).map((presetName) => (
+            <option key={presetName} value={presetName}>
+              {presetName}
+            </option>
+          ))}
+        </select>
+      </label>
+
       <button
         type="button"
         onClick={() => {

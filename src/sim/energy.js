@@ -1,15 +1,22 @@
-const BASE_COST = 0.5
-const SPEED_COST = 0.0005
-const VISION_COST = 0.01
 
-export function updateOrganismEnergy(organism, deltaTime) {
+export const DEFAULT_ENERGY_COSTS = {
+  baseCost: 0.5,
+  speedCost: 0.0005,
+  visionCost: 0.01,
+}
+
+export function updateOrganismEnergy(
+  organism,
+  deltaTime,
+  costs = DEFAULT_ENERGY_COSTS
+) {
   const speed = organism.genome.speed
   const vision = organism.genome.vision
 
   const costPerSecond =
-    BASE_COST +
-    SPEED_COST * speed ** 2 +
-    VISION_COST * vision
+    costs.baseCost +
+    costs.speedCost * speed ** 2 +
+    costs.visionCost * vision
 
   organism.energy -= costPerSecond * deltaTime
 }

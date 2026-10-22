@@ -11,7 +11,10 @@ export function mutateTrait(
   value,
   random,
   mutationRate = DEFAULT_MUTATION_RATE,
+  min = -Infinity,
+  max = Infinity,
 ) {
   const mutation = randomGaussian(random) * mutationRate;
-  return value * (1 + mutation);
+  const mutated = value * (1 + mutation);
+  return Math.max(min, Math.min(max, mutated));
 }

@@ -1,4 +1,4 @@
-import { findNearestFood } from "./sensing";
+import { findNearestFood } from "./sensing.js";
 
 const TURN_RATE = 4;
 const WANDER_JITTER = 3;

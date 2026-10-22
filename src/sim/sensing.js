@@ -3,6 +3,8 @@ export function findNearestFood(organism, foodItems) {
   let nearestDistanceSquared = Infinity
 
   for (const food of foodItems) {
+    if (food.eaten) continue
+
     const dx = food.x - organism.x
     const dy = food.y - organism.y
 

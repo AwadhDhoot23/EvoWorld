@@ -1,11 +1,11 @@
-import { createRng, shuffle } from "./rng";
-import { createOrganism } from "./organism";
-import { createFood } from "./food";
-import { updateOrganismMovement } from "./movement";
-import { eatNearbyFood } from "./eating";
-import { updateOrganismEnergy } from "./energy";
-import { reproduceOrganism } from "./reproduction";
-import { DEFAULT_MUTATION_RATE, randomGaussian } from "./mutation";
+import { createRng, shuffle } from "./rng.js";
+import { createOrganism } from "./organism.js";
+import { createFood } from "./food.js";
+import { updateOrganismMovement } from "./movement.js";
+import { eatNearbyFood } from "./eating.js";
+import { reproduceOrganism } from "./reproduction.js";
+import { DEFAULT_MUTATION_RATE, randomGaussian } from "./mutation.js";
+import { updateOrganismEnergy, DEFAULT_ENERGY_COSTS } from "./energy.js";
 
 const WORLD_WIDTH = 900;
 const WORLD_HEIGHT = 600;
@@ -88,21 +88,52 @@ export function createWorld(seed = 42) {
     mutationRate: DEFAULT_MUTATION_RATE,
     nextFoodId: STARTING_FOOD + 1,
     nextOrganismId: STARTING_ORGANISMS + 1,
+    energyCosts: { ...DEFAULT_ENERGY_COSTS },
+    energyCostsEnabled: true,
   };
 }
 
 export function updateWorld(world, deltaTime) {
+  world.foodSpawnAccumulator +=
+    deltaTime * (world.foodSpawnRate ?? DEFAULT_FOOD_SPAWN_RATE);
+
+  while (world.foodSpawnAccumulator >= 1 - 1e-9 && world.food.length < MAX_FOOD) {
+    const x = world.random() * world.width;
+    const y = world.random() * world.height;
+
+    world.food.push(createFood(world.nextFoodId, x, y));
+
+    world.nextFoodId += 1;
+    world.foodSpawnAccumulator -= 1;
+    if (world.foodSpawnAccumulator < 0) {
+      world.foodSpawnAccumulator = 0;
+    }
+  }
+
+  if (world.food.length >= MAX_FOOD) {
+    world.foodSpawnAccumulator = 0;
+  }
   const organismsToUpdate = shuffle(world.organisms, world.random);
 
   for (const organism of organismsToUpdate) {
     organism.age += deltaTime;
 
     updateOrganismMovement(organism, world.food, deltaTime, world.random);
-    updateOrganismEnergy(organism, deltaTime);
+    updateOrganismEnergy(
+      organism,
+      deltaTime,
+      world.energyCostsEnabled
+        ? world.energyCosts
+        : { baseCost: 0, speedCost: 0, visionCost: 0 },
+    );
+
     eatNearbyFood(organism, world.food);
     organism.cooldown = Math.max(0, organism.cooldown - deltaTime);
     reproduceOrganism(world, organism);
   }
+
+  world.food = world.food.filter((food) => !food.eaten);
+
   const survivors = [];
 
   for (const organism of world.organisms) {
@@ -117,18 +148,7 @@ export function updateWorld(world, deltaTime) {
   world.organisms = survivors;
   world.organisms.push(...world.newborns);
   world.newborns = [];
-  world.foodSpawnAccumulator +=
-    deltaTime * (world.foodSpawnRate ?? DEFAULT_FOOD_SPAWN_RATE);
 
-  while (world.foodSpawnAccumulator >= 1 && world.food.length < MAX_FOOD) {
-    const x = world.random() * world.width;
-    const y = world.random() * world.height;
-
-    world.food.push(createFood(world.nextFoodId, x, y));
-
-    world.nextFoodId += 1;
-    world.foodSpawnAccumulator -= 1;
-  }
   world.historySampleAccumulator += deltaTime;
 
   if (world.historySampleAccumulator >= 1) {

@@ -1,0 +1,7 @@
+Condition,Seeds,Final Pop (Mean),Final Pop (StdDev),Pop Min,Pop Max,Final Speed (Mean),Speed Min,Speed Max,Speed StdDev,Final Vision (Mean),Vision Min,Vision Max,Vision StdDev,Extinct Runs
+"Balanced",10,77.2,7.6,69,90,54.1,48.6,60.7,,67.3,63.3,71.4,,"0 / 10"
+"Scarce food",10,38.2,4.7,32,46,52.2,44.6,64.7,,72.9,64.5,83,,"0 / 10"
+"Abundant food",10,145.1,5.4,139,157,57.7,52.2,59.5,,59.9,57.3,64,,"0 / 10"
+"High mutation",10,77.7,6.5,69,88,48.9,42.3,55.7,,71.4,65.5,77.7,,"0 / 10"
+"No mutation",10,75.8,5.1,68,83,54.7,50.8,58,,64.3,59.4,70.6,,"0 / 10"
+"Control (Costs OFF)",10,400,0,400,400,61.8,60.4,63.4,,59.7,57.5,61.4,,"0 / 10"
