@@ -1,5 +1,5 @@
-import { useCallback, useEffect, useRef, useState } from "react";
-import { createWorld, updateWorld } from "../sim/world";
+import { useEffect, useRef, useState } from "react";
+import { createWorld, updateWorld } from "../sim/world.js";
 
 const WORLD_WIDTH = 900;
 const WORLD_HEIGHT = 600;
@@ -29,6 +29,11 @@ const PRESETS = {
 
 function WorldCanvas({ onHistoryUpdate }) {
   const canvasRef = useRef(null);
+  const onHistoryUpdateRef = useRef(onHistoryUpdate);
+
+  useEffect(() => {
+    onHistoryUpdateRef.current = onHistoryUpdate;
+  });
   const [selectedOrganism, setSelectedOrganism] = useState(null);
   const worldRef = useRef(null);
   const selectedOrganismRef = useRef(null);
@@ -218,7 +223,7 @@ function WorldCanvas({ onHistoryUpdate }) {
         if (historyUpdateAccumulator >= 0.25) {
           historyUpdateAccumulator = 0;
 
-          onHistoryUpdate?.({
+          onHistoryUpdateRef.current?.({
             population: [...world.history.population],
             food: [...world.history.food],
             meanSpeed: [...world.history.meanSpeed],
